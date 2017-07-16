@@ -1,0 +1,41 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    background: #2980b9 url('../images/bg.png') repeat 0 0;
+    -webkit-animation: 10s linear 0s normal none infinite animate;
+    -moz-animation: 10s linear 0s normal none infinite animate;
+    -ms-animation: 10s linear 0s normal none infinite animate;
+    -o-animation: 10s linear 0s normal none infinite animate;
+    animation: 10s linear 0s normal none infinite animate;
+
+}
+
+@-webkit-keyframes animate {
+    from {background-position:0 0;}
+    to {background-position: 0 -500px;}
+}
+
+@-moz-keyframes animate {
+    from {background-position:0 0;}
+    to {background-position: 0 -500px;}
+}
+
+@-ms-keyframes animate {
+    from {background-position:0 0;}
+    to {background-position: 0 -500px;}
+}
+
+@-o-keyframes animate {
+    from {background-position:0 0;}
+    to {background-position: 0 -500px;}
+}
+
+@keyframes animate {
+    from {background-position:0 0;}
+    to {background-position: 0 -500px;}
+}
+
+.jumbotron {
+    background-color: transparent;
+
+}
