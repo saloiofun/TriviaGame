@@ -39,3 +39,8 @@ body{
     background-color: transparent;
 
 }
+
+.buttons {
+    margin-top: .5em;
+    cursor: pointer;
+}
