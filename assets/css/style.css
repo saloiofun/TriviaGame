@@ -40,7 +40,15 @@ body{
 
 }
 
+.category img {
+    cursor: pointer;
+}
+
 .buttons {
     margin-top: .5em;
     cursor: pointer;
+}
+
+.answerImg {
+    margin-bottom: .5em;
 }
