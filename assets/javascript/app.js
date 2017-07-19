@@ -165,9 +165,9 @@ $(document).ready(function() {
 
                 var index = Math.floor((Math.random() * questionsObjArray.length));   
 
-                questionTimer = setTimeout(function() { wrongAnswer(questionsObjArray, index); }, triviaGame.setTime * 1000);
-
                 triviaGame.startTimer();
+
+                questionTimer = setTimeout(function() { wrongAnswer(questionsObjArray, index); }, triviaGame.setTime * 1000);
 
                 questionsContainer.html("<h1>" + questionsObjArray[index].question + "</h1>");
 
@@ -195,7 +195,6 @@ $(document).ready(function() {
                         answerTimer = setInterval(function(){triviaGame.playTrivia(questionsObjArray)}, 2000);
                     }
                     else {
-                        triviaGame.stopTimer();
                         wrongAnswer(questionsObjArray, index);
                     }
                 })
@@ -245,6 +244,7 @@ $(document).ready(function() {
     }
 
     function wrongAnswer(obj, index) {
+        triviaGame.stopTimer();
         answer("wrong.png", "Incorrect", obj[index].options[obj[index].correctAnswer]);
         obj.splice(index,1);
         triviaGame.wrong++;
