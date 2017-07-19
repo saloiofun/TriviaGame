@@ -1,47 +1,47 @@
 <html>
 <head>
-    <title>Trivia Game</title>
+  <title>Trivia Game</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="assets/javascript/app.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body id="bg">
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-          <div class="row">
-              <div class="col-6"><h1 class="display-3">TRIVIA GAME</h1></div>
-              <div id="timer" class="col-6 text-right"><h1 class="display-3"></h1></div>
-          </div>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6"><h1 class="display-3">TRIVIA GAME</h1></div>
+        <div id="timer" class="col-md-6 text-right"><h1 class="display-3"></h1></div>
       </div>
+    </div>
   </div>
   <div class="container trivia">
-      <div id="categories" class='row text-center justify-content-center'>
-          <div class='col category' value="videoGame">
-              <img src="assets/images/game.png" alt="Video Game Trivia" class="img-fluid">
-          </div>
-          <div class='col category' value="movie">
-              <img src="assets/images/movie.png" alt="Movies Trivia" class="img-fluid">
-          </div>
-          <div class='col category' value="tvShow">
-              <img src="assets/images/tvshow.png" alt="Tv Shows Trivia" class="img-fluid">
-          </div>
+    <div id="categories" class='row text-center justify-content-center'>
+      <div class='col category' value="videoGame">
+        <img src="assets/images/game.png" alt="Video Game Trivia" class="img-fluid">
       </div>
-      <div id="game"></div>
-      <div id="answer">
-          <div class="row text-center">
-              <div class="col-12 answerImg"></div>
-              <div class="col-12 answerFeedback"></div>
-          </div>
+      <div class='col category' value="movie">
+        <img src="assets/images/movie.png" alt="Movies Trivia" class="img-fluid">
       </div>
-      <div id="result" class="text-center">
-          <div class="resultInfo"></div>
-          <button type="button" class="btn btn-success btn-lg buttons" value="reset"><h3>Reset Game</h3></button>
+      <div class='col category' value="tvShow">
+        <img src="assets/images/tvshow.png" alt="Tv Shows Trivia" class="img-fluid">
       </div>
+    </div>
+    <div id="game"></div>
+    <div id="answer">
+      <div class="row text-center">
+        <div class="col-12 answerImg"></div>
+        <div class="col-12 answerFeedback"></div>
+      </div>
+    </div>
+    <div id="result" class="text-center">
+      <div class="resultInfo"></div>
+      <button type="button" class="btn btn-success btn-lg buttons" value="reset"><h3>Reset Game</h3></button>
+    </div>
   </div>
 </body>
 </html>

@@ -103,6 +103,7 @@ $(document).ready(function() {
         right : 0,
         wrong : 0,
         time : 10,
+        setTime : this.time,
         populateTriviaArray : function(originalArray, triviaArray) {
             for (var i = 0; i < originalArray.length; i++) {
                 triviaArray.push(originalArray[i]);
@@ -115,8 +116,8 @@ $(document).ready(function() {
             }
         },
         countTimer : function() {
-            triviaGame.time--;
-            var currentTime = triviaGame.timeConverter(triviaGame.time);
+            triviaGame.setTime--;
+            var currentTime = triviaGame.timeConverter(triviaGame.setTime);
             $("#timer h1").html(currentTime);
         }, 
         stopTimer: function() {
@@ -124,8 +125,8 @@ $(document).ready(function() {
             clockRunning = false;
         },
         resetTimer : function() {
-            triviaGame.time = 10;
-            $("#timer h1").html("00:10");
+            triviaGame.setTime = triviaGame.time;
+            $("#timer h1").html("00:" + triviaGame.time);
         },
         timeConverter : function(t) {
             var minutes = Math.floor(t / 60);
@@ -151,8 +152,8 @@ $(document).ready(function() {
         playTrivia : function(questionsObjArray) {
             if (questionsObjArray.length !== 0) {
 
+                hideDiv();
                 $("#game").show();
-                $("#answer").hide();
                 triviaGame.resetTimer();
                 clearInterval(answerTimer);
                 clearInterval(questionTimer);
@@ -164,7 +165,7 @@ $(document).ready(function() {
 
                 var index = Math.floor((Math.random() * questionsObjArray.length));   
 
-                questionTimer = setInterval(function() { wrongAnswer(questionsObjArray, index); }, triviaGame.time * 1000);
+                questionTimer = setTimeout(function() { wrongAnswer(questionsObjArray, index); }, triviaGame.setTime * 1000);
 
                 triviaGame.startTimer();
 
@@ -207,12 +208,18 @@ $(document).ready(function() {
         }
     }
 
-    $("#game").hide();
-    $("#answer").hide();
-    $("#result").hide();
+    hideDiv();
+    $("#categories").show();
+
+    function hideDiv() {
+        $("#categories").hide();
+        $("#game").hide();
+        $("#answer").hide();
+        $("#result").hide();
+    }
 
     function answer(icon, alt, answer) {
-        $("#game").hide();
+        hideDiv();
         $(".answerImg").empty();
         $(".answerFeedback").empty();
         $("#answer").show();
@@ -226,8 +233,7 @@ $(document).ready(function() {
     } 
 
     function result() {
-        $("#game").hide();
-        $("#answer").hide();
+        hideDiv();
         $("#timer h1").empty();
         $("#result .resultInfo").empty();
         $("#result").show();
@@ -245,33 +251,26 @@ $(document).ready(function() {
         answerTimer = setInterval(function(){triviaGame.playTrivia(obj)}, 2000);
     }
 
+    function loadTrivia(originalArray, triviaArray) {
+        hideDiv();
+        triviaGame.populateTriviaArray(originalArray, triviaArray); 
+        triviaGame.playTrivia(triviaArray);
+    }
+
     $("div[value='videoGame']").on("click", function () { 
-        triviaGame.populateTriviaArray(triviaQuestions.videoGame.questionsArray, triviaGame.videoGamesArray);
-        $("#categories").hide();
-        $("#game").show();
-        
-        triviaGame.playTrivia(triviaGame.videoGamesArray);
+        loadTrivia(triviaQuestions.videoGame.questionsArray, triviaGame.videoGamesArray);
     })
 
     $("div[value='movie']").on("click", function () { 
-        triviaGame.populateTriviaArray(triviaQuestions.movie.questionsArray, triviaGame.moviesArray);
-        $("#categories").hide();
-        $("#game").show();
-        
-        triviaGame.playTrivia(triviaGame.moviesArray);
+        loadTrivia(triviaQuestions.movie.questionsArray, triviaGame.moviesArray);
     })
 
     $("div[value='tvShow']").on("click", function () { 
-        triviaGame.populateTriviaArray(triviaQuestions.tvshow.questionsArray, triviaGame.tvShowsArray);
-        $("#categories").hide();
-        $("#game").show();
-        
-        triviaGame.playTrivia(triviaGame.tvShowsArray);
+        loadTrivia(triviaQuestions.tvshow.questionsArray, triviaGame.tvShowsArray);
     })
 
     $("button[value='reset']").on("click", function () { 
-        $("#result").hide();
-        $("#answer").hide();
+        hideDiv();
         $("#game").empty();
         $("#categories").show();
         triviaGame.resetTimer();
