@@ -67,7 +67,7 @@ $(document).ready(function() {
         },
         resetTimer : function() {
             triviaGame.time = 10;
-            $("#timer h1").html("00:10")
+            $("#timer h1").html("00:10");
         },
         timeConverter : function(t) {
             var minutes = Math.floor(t / 60);
@@ -144,6 +144,7 @@ $(document).ready(function() {
                 clearInterval(answerTimer);
                 clearInterval(questionTimer);
                 result();
+                return;
             }
         }
     }
@@ -152,24 +153,11 @@ $(document).ready(function() {
     $("#answer").hide();
     $("#result").hide();
 
-    triviaGame.populateTriviaArray(triviaQuestions.videoGame.questionsArray, triviaGame.videoGamesArray);
-
-    $("div[value='videoGame']").on("click", function () { 
-        $("#categories").hide();
-        $("#game").show();
-        
-        triviaGame.playTrivia(triviaGame.videoGamesArray);
-    })
-
-    $("button[value='reset']").on("click", function () { 
-        resetGame();
-    })
-
     function answer(icon, alt, answer) {
         $("#game").hide();
-        $("#answer").show();
         $(".answerImg").empty();
         $(".answerFeedback").empty();
+        $("#answer").show();
 
         var img = $("<img>");
         img.attr("src", "assets/images/" + icon);
@@ -179,25 +167,12 @@ $(document).ready(function() {
         $(".answerFeedback").html("<h1>" + answer + "</h1>");
     } 
 
-    function resetGame() {
-        $("#categories").show();
-        $("#result").hide();
-        $("#answer").hide();
-        $("#game").empty();
-        $("#timer h1").empty();
-        triviaGame.right = 0;
-        triviaGame.wrong = 0;
-        console.log(triviaGame.videoGamesArray);
-        triviaGame.populateTriviaArray(triviaQuestions.videoGame.questionsArray, triviaGame.videoGamesArray);
-        console.log(triviaGame.videoGamesArray);
-    }
-
     function result() {
         $("#game").hide();
         $("#answer").hide();
-        $("#result").show();
         $("#timer h1").empty();
         $("#result .resultInfo").empty();
+        $("#result").show();
 
         var resultHTML = "<h1>Correct: " + triviaGame.right + "</h1>" + 
         "<h1>Incorrect: " + triviaGame.wrong + "</h1>";
@@ -211,4 +186,23 @@ $(document).ready(function() {
         triviaGame.wrong++;
         answerTimer = setInterval(function(){triviaGame.playTrivia(obj)}, 2000);
     }
+    
+    $("div[value='videoGame']").on("click", function () { 
+        triviaGame.populateTriviaArray(triviaQuestions.videoGame.questionsArray, triviaGame.videoGamesArray);
+        $("#categories").hide();
+        $("#game").show();
+        
+        triviaGame.playTrivia(triviaGame.videoGamesArray);
+    })
+
+    $("button[value='reset']").on("click", function () { 
+        $("#result").hide();
+        $("#answer").hide();
+        $("#game").empty();
+        $("#categories").show();
+        triviaGame.resetTimer();
+        $("#timer h1").empty();
+        triviaGame.right = 0;
+        triviaGame.wrong = 0;
+    })
 })
