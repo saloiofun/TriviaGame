@@ -30,6 +30,64 @@ $(document).ready(function() {
                 correctAnswer: 1
             }
             ]
+        },
+        movie : {
+            questionsArray : [
+            {
+                question: "Which two actors directed themselves in movies and won Oscars for Best Actor?",
+                options: ["Al Pacino and Timothy Hutton","Jack Nicholson and Kevin Spacey","Laurence Olivier and Roberto Benigni","Tom Hanks and Paul Newman"],
+                correctAnswer: 2
+            },
+            {
+                question: "\"After all, tomorrow is another day!\" was the last line in which Oscar-winning Best Picture?",
+                options: ["Gone With the Wind","Great Expectations","Harold and Maude","The Matrix"],
+                correctAnswer: 0
+            },
+            {
+                question: "Who is the only person to win an Oscar for Best Director for the only movie he ever directed?",
+                options: ["Bob Fosse","Frank Borzage","Leo McCarey","Jerome Robbins"],
+                correctAnswer: 3
+            },
+            {
+                question: "Who is the most nominated actor in Academy history?",
+                options: ["Jack Nicholson","Laurence Olivier","Spencer Tracy","Paul Newman"],
+                correctAnswer: 0
+            },
+            {
+                question: "Which movie ends with this final line of dialogue: \"Why, she wouldn't even harm a fly\"?",
+                options: ["Diabolique (1996)","Psycho (1960)","To Die For (1995)","Monster (2004)"],
+                correctAnswer: 1
+            }
+            ]
+        },
+        tvshow : {
+            questionsArray : [
+            {
+                question: "Which of these TV shows ended in 2015?",
+                options: ["Parks and Recreation","The Big Bang Theory","The Office","Modern Family"],
+                correctAnswer: 0
+            },
+            {
+                question: "Which of these sitcoms was set in Minneapolis?",
+                options: ["The Mary Tyler Moore Show","Cheers","Married...with Children","Frasier"],
+                correctAnswer: 0
+            },
+            {
+                question: "Which TV network was not originally part of the United States' 'Big Three'?",
+                options: ["CBS","NBC","FOX","ABC"],
+                correctAnswer: 2
+            },
+            {
+                question: "Which actor from 'Friends' later starred in a titular spin-off?",
+                options: ["Jennifer Aniston","David Schwimmer","Courteney Cox","Matt LeBlanc"],
+                correctAnswer: 3
+            },
+            {
+                question: "Which character does not work at the Krusty Krab?",
+                options: ["Squidward","Mr. Krabs","Plankton","SpongeBob"],
+                correctAnswer: 2
+            }
+            ]
         }
     }
 
@@ -186,13 +244,29 @@ $(document).ready(function() {
         triviaGame.wrong++;
         answerTimer = setInterval(function(){triviaGame.playTrivia(obj)}, 2000);
     }
-    
+
     $("div[value='videoGame']").on("click", function () { 
         triviaGame.populateTriviaArray(triviaQuestions.videoGame.questionsArray, triviaGame.videoGamesArray);
         $("#categories").hide();
         $("#game").show();
         
         triviaGame.playTrivia(triviaGame.videoGamesArray);
+    })
+
+    $("div[value='movie']").on("click", function () { 
+        triviaGame.populateTriviaArray(triviaQuestions.movie.questionsArray, triviaGame.moviesArray);
+        $("#categories").hide();
+        $("#game").show();
+        
+        triviaGame.playTrivia(triviaGame.moviesArray);
+    })
+
+    $("div[value='tvShow']").on("click", function () { 
+        triviaGame.populateTriviaArray(triviaQuestions.tvshow.questionsArray, triviaGame.tvShowsArray);
+        $("#categories").hide();
+        $("#game").show();
+        
+        triviaGame.playTrivia(triviaGame.tvShowsArray);
     })
 
     $("button[value='reset']").on("click", function () { 
