@@ -2,17 +2,19 @@
 
 ![demo](assets/images/demo.jpg)
 
-This Trivia Game is based on Games, Movies, and TV shows
+This Trivia Game is based on Games, Movies, and TV Shows.
 
 Link: https://saloiofun.github.io/TriviaGame/
 
 ## Getting Started
 
-Use keyboard keys to guess letters
+* Use your mouse to select 1 of 3 options (Games, Movies, or TV Shows).
 
-## Timed Questions:
+* Use your mouse to choose your answer.
 
-*  The game shows only one question until the player answers it or their time runs out..
+## About the Trivia Game (Timed Questions):
+
+* The game shows only one question until the player answers it or if their time runs out..
 
 * If the player selects the correct answer, a congratulation screen is shown for choosing the right option. After a few seconds, the next question is displayed.
 
