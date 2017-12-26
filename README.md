@@ -14,7 +14,7 @@ Link: https://saloiofun.github.io/TriviaGame/
 
 ## About the Trivia Game (Timed Questions):
 
-* The game shows only one question until the player answers it or if their time runs out..
+* The game shows only one question until the player answers it or if their time runs out.
 
 * If the player selects the correct answer, a congratulation screen is shown for choosing the right option. After a few seconds, the next question is displayed.
 
